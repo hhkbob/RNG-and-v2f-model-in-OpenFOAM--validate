@@ -1,0 +1,97 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5.0                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0; 
+    format      ascii;
+    class       volVectorField; 
+    location    "0";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField uniform (0 0 0); 
+
+boundaryField
+{
+    BACK
+    {
+        type            wedge;
+    }
+    IN
+    {
+        type        surfaceNormalFixedValue;
+        refValue    nonuniform List<scalar>
+30
+(
+-10.738024
+-10.736930
+-10.735639
+-10.730433
+-10.721535
+-10.710176
+-10.693461
+-10.672042
+-10.645224
+-10.608723
+-10.562989
+-10.505397
+-10.432943
+-10.341517
+-10.224502
+-10.079997
+-9.912790
+-9.732336
+-9.540203
+-9.332076
+-9.109033
+-8.869383
+-8.602152
+-8.302692
+-7.958968
+-7.548284
+-7.026419
+-6.300262
+-4.980498
+-1.863073
+);
+    }
+    WALL2
+    {
+        type            noSlip;
+    }
+    CONFINED
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+    PLANE
+    {
+        type            noSlip;
+    }
+    FRONT
+    {
+        type            wedge;
+    }
+    FRONT2
+    {
+        type            wedge;
+    }
+    BACK2
+    {
+        type            wedge;
+    }
+    OUT
+    {
+        type            pressureInletOutletVelocity;
+        value           uniform (0 0 0);
+    }
+}
+
