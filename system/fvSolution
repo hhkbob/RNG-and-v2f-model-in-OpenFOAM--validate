@@ -55,13 +55,21 @@ solvers
 		maxIter	100;
 		solver	PBiCGStab;
 	}
-	k
+	"(k)"
 	{
 		relTol	0.1;
 		preconditioner	DILU;
 		tolerance	1.0E-6;
 		maxIter	100;
 		solver	PBiCGStab;
+	}
+	"(f|v2)"
+	{
+	    relTol	0.1;
+		tolerance	1.0E-6;
+		maxIter	100;
+		solver	smoothSolver;
+		smoother symGaussSeidel;
 	}
 	Phi
 	{
@@ -93,6 +101,8 @@ SIMPLE
 		U	1.0E-5;
 		omega	1.0E-5;
 		epsilon  1.0e-5;
+		v2       1.0e-5;
+		f        1.0e-5;
 	}
 }
 relaxationFactors
@@ -103,6 +113,8 @@ relaxationFactors
 	U	0.2;
 	omega	0.5;
 	epsilon 0.9;
+	v2    0.5;
+	f     0.6;
 }
 potentialFlow
 {
