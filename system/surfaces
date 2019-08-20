@@ -1,0 +1,32 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5                                     |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+    class           dictionary;
+    location        system;
+    object          sets;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+surfaces{
+surfaceFormat raw;
+type  surfaces;
+writeControl writeTime;
+fields ( p surfaceNusseltNum wallShearStress);
+interpolationScheme cellPoint;
+surfaces
+(
+    wall
+	{
+	    type  patch; 
+		patches ("PLANE");
+	}
+);

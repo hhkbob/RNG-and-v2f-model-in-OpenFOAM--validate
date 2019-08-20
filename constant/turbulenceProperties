@@ -1,0 +1,15 @@
+FoamFile
+{
+	version	2.0;
+	class	dictionary;
+	format	ascii;
+	location	"constant"; 
+	object	turbulenceProperties;
+}
+simulationType	RAS;
+RAS
+{
+	printCoeffs	on;
+	RASModel	RNGkEpsilon;
+	turbulence	true;
+}
